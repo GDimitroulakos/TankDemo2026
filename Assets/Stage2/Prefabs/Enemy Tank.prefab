@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 7083049045354411715}
   - component: {fileID: 2272606001117632842}
   - component: {fileID: 79694889411771930}
+  - component: {fileID: 7183126701141563139}
   m_Layer: 0
   m_Name: Enemy Tank
   m_TagString: Untagged
@@ -407,8 +408,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ddb94379d39914f977364ff5e42b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTankWander
+  patrolCenter: {fileID: 0}
   wanderRadius: 50
+  minDistanceForNewPoint: 12
   waitTimeAtDestination: 10
+  stuckCheckTime: 2
+  stuckMoveThreshold: 0.3
+  maxAttempts: 30
+  navMeshSampleDistance: 8
+--- !u!114 &7183126701141563139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397253544927586750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9709398641d3ce246b6ed36c967c2853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyTankRespawn
+  player: {fileID: 0}
+  respawnCenter: {fileID: 0}
+  minDistanceFromPlayer: 25
+  respawnRadius: 80
+  respawnDelay: 1
+  maxAttempts: 50
+  navMeshSampleDistance: 8
 --- !u!1 &9138325255868438497
 GameObject:
   m_ObjectHideFlags: 0

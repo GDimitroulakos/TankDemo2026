@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class Projectile2 : MonoBehaviour {
+public class ProjectileStage2 : MonoBehaviour {
     public float lifeTime = 3f;
-
     private bool hasHit;
 
     private void Start() {
