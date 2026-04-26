@@ -27,7 +27,5 @@ public class ProjectileStage2 : MonoBehaviour {
         if (enemy != null) {
             enemy.RespawnFromHit();
         }
-
-        Destroy(gameObject);
     }
 }
