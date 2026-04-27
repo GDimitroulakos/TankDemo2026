@@ -145,103 +145,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 3, z: 8}
   m_Center: {x: 0, y: 1.3, z: -1}
---- !u!54 &345465142
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345465139}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 1
---- !u!114 &345465143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345465139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162102723d1b46f4daf08926836b12a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NavMeshTrackScrolling
-  navMeshAgent: {fileID: 0}
-  leftTrackMaterial: {fileID: 0}
-  rightTrackMaterial: {fileID: 0}
-  linearScrollMultiplier: 8
-  turnScrollMultiplier: 1
-  invertLeftTrack: 1
-  invertRightTrack: 1
-  uvOffsetProperty: _UvOffset
-  showDebugValues: 0
---- !u!195 &345465144
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345465139}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!1 &380373268 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8905449614642118182, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-  m_PrefabInstance: {fileID: 1788978839}
-  m_PrefabAsset: {fileID: 0}
---- !u!195 &380373270
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380373268}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1 &603766127
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,27 +662,42 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8905449614642118182, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7397253544927586750, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 380373270}
+      addedObject: {fileID: 1855654829}
     - targetCorrespondingSourceObject: {fileID: 7777840038995395695, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 345465141}
-    - targetCorrespondingSourceObject: {fileID: 7777840038995395695, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 345465142}
-    - targetCorrespondingSourceObject: {fileID: 7777840038995395695, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 345465144}
-    - targetCorrespondingSourceObject: {fileID: 7777840038995395695, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 345465143}
   m_SourcePrefab: {fileID: 100100000, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
+--- !u!1 &1855654822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7397253544927586750, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
+  m_PrefabInstance: {fileID: 1788978839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1855654828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
   m_PrefabInstance: {fileID: 1788978839}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855654829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855654822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162102723d1b46f4daf08926836b12a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NavMeshTrackScrolling
+  leftTrackMaterial: {fileID: 2100000, guid: 5645789c4c55cd44abde68aed936dd24, type: 2}
+  rightTrackMaterial: {fileID: 2100000, guid: d22247cd27476fa469461848906fc153, type: 2}
+  linearScrollMultiplier: 8
+  turnScrollMultiplier: 10
+  invertLeftTrack: 1
+  invertRightTrack: 1
+  uvOffsetProperty: _UvOffset
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
