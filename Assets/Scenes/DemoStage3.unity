@@ -309,6 +309,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7011535655356217711, guid: ab0dfb03dac80794b9f5c89fac03aecb, type: 3}
   firePoint: {fileID: 808689135}
   launchForce: 100
+  projectileSpawnForwardOffset: 1
   fireSound: {fileID: 8300000, guid: 8f86b22313039c242bae709fe63831ad, type: 3}
   fireSoundVolume: 10
   muzzleFlashPrefab: {fileID: 4318731173862155486, guid: e7ac712e25c56bd43b43e0d9e0cd1ed6, type: 3}
@@ -625,7 +626,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4097478382126165787, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
