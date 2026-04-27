@@ -119,9 +119,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &142223503 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 227594047494002074, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
+--- !u!1 &142223502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9101549449677896351, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
   m_PrefabInstance: {fileID: 463191217}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &342572496
@@ -357,7 +357,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 186038466362454303, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1628667772}
   m_SourcePrefab: {fileID: 100100000, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
 --- !u!1 &734371682
 GameObject:
@@ -543,63 +546,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b68dcdf61d402c54bb74fca89f78b7c5, type: 3}
---- !u!1001 &927915595
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 50.33838
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.00000087290937
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.09439183
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4955615524616513670, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7397253544927586750, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
-      propertyPath: m_Name
-      value: Enemy Tank Stage3 Artiistic
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ad35636dc0a29f242ab075e0af45b30a, type: 3}
 --- !u!1001 &1182431727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -655,12 +601,111 @@ PrefabInstance:
     - target: {fileID: 6139878523947661871, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 142223503}
+      objectReference: {fileID: 1981922419}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
+--- !u!114 &1522315322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6139878523947661871, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
+  m_PrefabInstance: {fileID: 1182431727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+--- !u!1 &1628667770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 186038466362454303, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
+  m_PrefabInstance: {fileID: 463191217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1628667772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628667770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c2dab305d3bb94e92a957812fd8008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankVisualSwitcher
+  greyboxVisual: {fileID: 142223502}
+  leopardVisual: {fileID: 1981922418}
+  playerCamera: {fileID: 1522315322}
+  switchKey: 3
+--- !u!1 &1981922418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1040961270250881961, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
+  m_PrefabInstance: {fileID: 463191217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1981922419 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2398415282757336718, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
+  m_PrefabInstance: {fileID: 463191217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7430755325211076260
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 46.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857370500420513587, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8719155799293593712, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_Name
+      value: Enemy Tank Stage3 Artiistic
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -669,5 +714,5 @@ SceneRoots:
   - {fileID: 734371684}
   - {fileID: 918085951}
   - {fileID: 1182431727}
-  - {fileID: 927915595}
+  - {fileID: 7430755325211076260}
   - {fileID: 463191217}
