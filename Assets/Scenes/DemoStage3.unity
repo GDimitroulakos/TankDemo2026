@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &142223502 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9101549449677896351, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-  m_PrefabInstance: {fileID: 463191217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &342572496
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 342572496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -20}
+  m_LocalPosition: {x: 1.04341, y: 5, z: -13.957769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,74 +289,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1001 &463191217
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 186038466362454303, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_Name
-      value: Player Tank Stage3 Artistic
-      objectReference: {fileID: 0}
-    - target: {fileID: 1040961270250881961, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061625811169260440, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9101549449677896351, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 186038466362454303, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1628667772}
-  m_SourcePrefab: {fileID: 100100000, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
 --- !u!1 &734371682
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6112710929537103101, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.04341
       objectReference: {fileID: 0}
     - target: {fileID: 6112710929537103101, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -568,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6112710929537103101, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20
+      value: -13.957769
       objectReference: {fileID: 0}
     - target: {fileID: 6112710929537103101, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -601,7 +528,7 @@ PrefabInstance:
     - target: {fileID: 6139878523947661871, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 1981922419}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -618,37 +545,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
---- !u!1 &1628667770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 186038466362454303, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-  m_PrefabInstance: {fileID: 463191217}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1628667772
-MonoBehaviour:
+--- !u!1001 &1848387797
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1628667770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c2dab305d3bb94e92a957812fd8008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TankVisualSwitcher
-  greyboxVisual: {fileID: 142223502}
-  leopardVisual: {fileID: 1981922418}
-  playerCamera: {fileID: 1522315322}
-  switchKey: 3
---- !u!1 &1981922418 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1040961270250881961, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-  m_PrefabInstance: {fileID: 463191217}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1981922419 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2398415282757336718, guid: 859345745dd3d0741b0a9e2b1dc1e179, type: 3}
-  m_PrefabInstance: {fileID: 463191217}
-  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2516549324188988481, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1522315322}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.6904737
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000033561191
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.4429836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022786624418759384, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
+      propertyPath: m_Name
+      value: Player Tank Stage3 Artistic n Sound
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
 --- !u!1001 &7430755325211076260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,4 +672,4 @@ SceneRoots:
   - {fileID: 918085951}
   - {fileID: 1182431727}
   - {fileID: 7430755325211076260}
-  - {fileID: 463191217}
+  - {fileID: 1848387797}
