@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d9d3e44646b93448c60570161ca508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  lifeTime: 6
+  lifeTime: 5
 --- !u!54 &1588181625549496401
 Rigidbody:
   m_ObjectHideFlags: 0
