@@ -289,6 +289,32 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &689278640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8116115583625324987, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+  m_PrefabInstance: {fileID: 1196381683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689278648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689278640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f7e6a87502fd241b7d806cd2e15923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankShooterSoundMuzzleFlash
+  projectilePrefab: {fileID: 7011535655356217711, guid: ab0dfb03dac80794b9f5c89fac03aecb, type: 3}
+  firePoint: {fileID: 808689135}
+  launchForce: 100
+  fireSound: {fileID: 8300000, guid: 8f86b22313039c242bae709fe63831ad, type: 3}
+  fireSoundVolume: 10
+  muzzleFlashPrefab: {fileID: 4318731173862155486, guid: e7ac712e25c56bd43b43e0d9e0cd1ed6, type: 3}
+  muzzleFlashPoint: {fileID: 808689135}
+  muzzleFlashLifetime: 2
+  muzzleFlashRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &734371682
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +442,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!4 &808689135 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9000749576621036263, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+  m_PrefabInstance: {fileID: 1196381683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &918085951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -590,10 +621,17 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1522315322}
+    - target: {fileID: 9000749576621036263, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8116115583625324987, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 689278648}
   m_SourcePrefab: {fileID: 100100000, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
 --- !u!114 &1522315322 stripped
 MonoBehaviour:
