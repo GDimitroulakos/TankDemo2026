@@ -534,6 +534,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
+--- !u!1001 &1196381683
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9289428
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000010190338
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4288157
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973054812708729755, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371908499338195158, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_Name
+      value: Player Tank Stage3 Artistic n Sound n Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409970270751501848, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1522315322}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
 --- !u!114 &1522315322 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6139878523947661871, guid: ab788f5103597eb45b065b309d52a9c1, type: 3}
@@ -545,67 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
---- !u!1001 &1848387797
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2516549324188988481, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: playerCamera
-      value: 
-      objectReference: {fileID: 1522315322}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.6904737
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0000033561191
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.4429836
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543231162087424524, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022786624418759384, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
-      propertyPath: m_Name
-      value: Player Tank Stage3 Artistic n Sound
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b168d53166d468d4eaef621ff66690b5, type: 3}
 --- !u!1001 &7430755325211076260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -672,4 +672,4 @@ SceneRoots:
   - {fileID: 918085951}
   - {fileID: 1182431727}
   - {fileID: 7430755325211076260}
-  - {fileID: 1848387797}
+  - {fileID: 1196381683}
