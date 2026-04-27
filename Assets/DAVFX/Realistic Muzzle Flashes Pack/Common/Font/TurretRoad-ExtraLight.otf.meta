@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 8448db98e750db64caa3717ce7394f61
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Turret Road
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/Common/Font/TurretRoad-ExtraLight.otf
+  uploadId: 851794

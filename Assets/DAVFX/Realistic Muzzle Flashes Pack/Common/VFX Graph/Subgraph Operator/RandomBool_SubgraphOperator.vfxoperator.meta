@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d7d31936b66488f4c8d81be5cc838ba9
+VisualEffectImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/Common/VFX Graph/Subgraph
+    Operator/RandomBool_SubgraphOperator.vfxoperator
+  uploadId: 851794

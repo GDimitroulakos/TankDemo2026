@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ac5cc2fbe6d48574c9261d9100b8c581
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 60072b568d64c40a485e0fc55012dc9f, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/Common/Shaders/Subgraphs/SG_DepthFade.shadersubgraph
+  uploadId: 851794

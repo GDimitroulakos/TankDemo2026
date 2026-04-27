@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6d5e13c8d7e48d64589a1443167272d5
+VisualEffectImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/URP/VFX Graph/Subgraphs/Cross
+    Muzzle Flashes Subgraph.vfx
+  uploadId: 851794

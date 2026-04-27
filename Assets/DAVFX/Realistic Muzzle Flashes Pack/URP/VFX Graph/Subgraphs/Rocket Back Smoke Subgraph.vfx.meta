@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6f0e386ee2fce244fb6b16af2adad3fd
+VisualEffectImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/URP/VFX Graph/Subgraphs/Rocket
+    Back Smoke Subgraph.vfx
+  uploadId: 851794

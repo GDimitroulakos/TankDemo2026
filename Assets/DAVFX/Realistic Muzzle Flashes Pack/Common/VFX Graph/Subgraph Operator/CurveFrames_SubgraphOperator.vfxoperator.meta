@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d26e618b1b5f39f4ebbbe7c6049c41b6
+VisualEffectImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/Common/VFX Graph/Subgraph
+    Operator/CurveFrames_SubgraphOperator.vfxoperator
+  uploadId: 851794

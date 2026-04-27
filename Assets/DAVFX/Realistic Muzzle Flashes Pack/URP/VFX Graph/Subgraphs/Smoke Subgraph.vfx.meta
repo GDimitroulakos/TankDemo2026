@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 025e070c830b33f40843d9a9d0ba3dba
+VisualEffectImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/URP/VFX Graph/Subgraphs/Smoke
+    Subgraph.vfx
+  uploadId: 851794

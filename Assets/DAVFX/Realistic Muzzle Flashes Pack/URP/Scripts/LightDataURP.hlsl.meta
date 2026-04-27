@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 64725068f4576744faa8a8a5eed42ab2
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 330624
+  packageName: Realistic Muzzle Flashes Pack
+  packageVersion: 1.1
+  assetPath: Assets/DAVFX/Realistic Muzzle Flashes Pack/URP/Scripts/LightDataURP.hlsl
+  uploadId: 851794
