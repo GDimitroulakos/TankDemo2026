@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: be471db21d67c1a4d93fe41d18ef74d1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 291615
+  packageName: Realistic 6D Lighting Explosions Pack
+  packageVersion: 2.2.1
+  assetPath: Assets/DAVFX/Realistic 6D Lighting Explosions/URP/Materials/Demo Scene/Skybox.mat
+  uploadId: 864172

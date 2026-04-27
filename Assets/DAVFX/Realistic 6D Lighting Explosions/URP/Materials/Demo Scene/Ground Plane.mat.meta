@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b2669593b67b7eb458d54c064b57f318
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 291615
+  packageName: Realistic 6D Lighting Explosions Pack
+  packageVersion: 2.2.1
+  assetPath: Assets/DAVFX/Realistic 6D Lighting Explosions/URP/Materials/Demo Scene/Ground
+    Plane.mat
+  uploadId: 864172

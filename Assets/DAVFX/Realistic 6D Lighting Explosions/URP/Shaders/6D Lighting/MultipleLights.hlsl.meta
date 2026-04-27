@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bec4c781ce26ea6438a44136777730c0
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 291615
+  packageName: Realistic 6D Lighting Explosions Pack
+  packageVersion: 2.2.1
+  assetPath: Assets/DAVFX/Realistic 6D Lighting Explosions/URP/Shaders/6D Lighting/MultipleLights.hlsl
+  uploadId: 864172

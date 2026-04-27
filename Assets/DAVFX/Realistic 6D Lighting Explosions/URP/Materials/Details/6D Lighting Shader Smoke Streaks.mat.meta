@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 30224e5e58eb2764b8b2135f7d7a5fa1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 291615
+  packageName: Realistic 6D Lighting Explosions Pack
+  packageVersion: 2.2.1
+  assetPath: Assets/DAVFX/Realistic 6D Lighting Explosions/URP/Materials/Details/6D
+    Lighting Shader Smoke Streaks.mat
+  uploadId: 864172

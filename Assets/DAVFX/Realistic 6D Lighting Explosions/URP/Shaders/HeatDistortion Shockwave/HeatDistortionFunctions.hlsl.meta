@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 69bcb16ba182ef7449f28bb033258dd8
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 291615
+  packageName: Realistic 6D Lighting Explosions Pack
+  packageVersion: 2.2.1
+  assetPath: Assets/DAVFX/Realistic 6D Lighting Explosions/URP/Shaders/HeatDistortion
+    Shockwave/HeatDistortionFunctions.hlsl
+  uploadId: 864172
