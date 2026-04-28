@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &61285991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8057577464429201866, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+  m_PrefabInstance: {fileID: 1196381683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &342572496
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,12 +314,14 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7011535655356217711, guid: ab0dfb03dac80794b9f5c89fac03aecb, type: 3}
   firePoint: {fileID: 808689135}
   launchForce: 100
-  projectileSpawnForwardOffset: 1
+  projectileSpawnForwardOffset: 2
   fireSound: {fileID: 8300000, guid: 8f86b22313039c242bae709fe63831ad, type: 3}
   fireSoundVolume: 10
-  muzzleFlashPrefab: {fileID: 4318731173862155486, guid: e7ac712e25c56bd43b43e0d9e0cd1ed6, type: 3}
+  muzzleFlashPrefab: {fileID: 4781922991124311028, guid: b156ba2dc263f76459716be132beb5ec, type: 3}
   muzzleFlashPoint: {fileID: 808689135}
-  muzzleFlashLifetime: 2
+  muzzleFlashScale: 6
+  muzzleFlashVisibleTime: 0.25
+  muzzleFlashPositionOffset: {x: 0, y: 0, z: 0}
   muzzleFlashRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &734371682
 GameObject:
@@ -622,18 +629,30 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1522315322}
+    - target: {fileID: 8116115583625324987, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8146322664993712250, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9000749576621036263, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4097478382126165787, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+    - {fileID: 1608523781003311312, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8116115583625324987, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 689278648}
+    - targetCorrespondingSourceObject: {fileID: 8146322664993712250, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1740808379}
   m_SourcePrefab: {fileID: 100100000, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
 --- !u!114 &1522315322 stripped
 MonoBehaviour:
@@ -646,6 +665,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+--- !u!1 &1740808371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8146322664993712250, guid: aa301298b5ef7b54c8dab58184dab3b2, type: 3}
+  m_PrefabInstance: {fileID: 1196381683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1740808379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740808371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f7e6a87502fd241b7d806cd2e15923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankShooterSoundMuzzleFlash
+  projectilePrefab: {fileID: 7011535655356217711, guid: ab0dfb03dac80794b9f5c89fac03aecb, type: 3}
+  firePoint: {fileID: 61285991}
+  launchForce: 100
+  projectileSpawnForwardOffset: 2
+  fireSound: {fileID: 8300000, guid: 8f86b22313039c242bae709fe63831ad, type: 3}
+  fireSoundVolume: 10
+  muzzleFlashPrefab: {fileID: 4781922991124311028, guid: b156ba2dc263f76459716be132beb5ec, type: 3}
+  muzzleFlashPoint: {fileID: 61285991}
+  muzzleFlashScale: 6
+  muzzleFlashVisibleTime: 0.25
+  muzzleFlashPositionOffset: {x: 0, y: 0, z: 0}
+  muzzleFlashRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &7430755325211076260
 PrefabInstance:
   m_ObjectHideFlags: 0
