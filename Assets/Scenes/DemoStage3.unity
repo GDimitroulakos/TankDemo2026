@@ -694,6 +694,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7505907497122479972, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8719155799293593712, guid: 797cc356821c3124b81948bf41b56d76, type: 3}
       propertyPath: m_Name
       value: Enemy Tank Stage3 Artiistic
