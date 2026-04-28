@@ -562,7 +562,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 50
+  m_Speed: 20
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -609,7 +609,7 @@ MonoBehaviour:
   player: {fileID: 0}
   respawnCenter: {fileID: 0}
   minDistanceFromPlayer: 25
-  respawnRadius: 80
+  respawnRadius: 10
   respawnDelay: 1
   maxAttempts: 50
   navMeshSampleDistance: 8
