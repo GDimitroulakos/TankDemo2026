@@ -31,13 +31,21 @@ public class TankDestructionSequence : MonoBehaviour {
 
     [Header("Cleanup")]
     [SerializeField] private float piecesLifetime = 5f;
-    [SerializeField] private bool destroyOriginalTank = true;
+
+    [Tooltip("Για respawn πρέπει να μείνει false.")]
+    [SerializeField] private bool destroyOriginalTank = false;
+
+    [Header("Respawn")]
+    [SerializeField] private bool respawnAfterDestruction = true;
 
     [Header("Auto Turret Detection")]
     [SerializeField] private bool autoDetectTurretIfMissing = true;
 
     private bool isDestroyed;
+    private EnemyTankRespawn enemyRespawn;
+
     private readonly List<GameObject> spawnedPieces = new List<GameObject>();
+    private readonly List<MonoBehaviour> temporarilyDisabledBehaviours = new List<MonoBehaviour>();
 
     public void DestroyTank(Vector3 hitPoint) {
         if (isDestroyed)
@@ -51,6 +59,8 @@ public class TankDestructionSequence : MonoBehaviour {
 
         if (visualRoot == null)
             visualRoot = FindVisualRoot();
+
+        enemyRespawn = GetComponent<EnemyTankRespawn>();
 
         StopTankLogic();
 
@@ -67,11 +77,30 @@ public class TankDestructionSequence : MonoBehaviour {
 
         yield return new WaitForSeconds(piecesLifetime);
 
+        spawnedPieces.Clear();
+
         if (debrisRoot != null)
             Destroy(debrisRoot);
 
-        if (destroyOriginalTank)
+        if (respawnAfterDestruction && enemyRespawn != null) {
+            enemyRespawn.RespawnFromHit();
+
+            yield return new WaitForSeconds(enemyRespawn.respawnDelay + 0.1f);
+
+            RestoreTankLogicAfterRespawn();
+
+            isDestroyed = false;
+
+            yield break;
+        }
+
+        if (destroyOriginalTank) {
             Destroy(gameObject);
+        } else {
+            RestoreTankLogicAfterRespawn();
+            ShowOriginalTank();
+            isDestroyed = false;
+        }
     }
 
     private Transform FindVisualRoot() {
@@ -138,6 +167,9 @@ public class TankDestructionSequence : MonoBehaviour {
     }
 
     private Transform TryAutoDetectTurret() {
+        if (visualRoot == null)
+            return null;
+
         Transform[] allTransforms = visualRoot.GetComponentsInChildren<Transform>(true);
 
         foreach (Transform t in allTransforms) {
@@ -145,7 +177,8 @@ public class TankDestructionSequence : MonoBehaviour {
 
             if (lowerName.Contains("turret") ||
                 lowerName.Contains("tower") ||
-                lowerName.Contains("gun")) {
+                lowerName.Contains("gun") ||
+                lowerName.Contains("cannon")) {
                 if (t.GetComponentInChildren<Renderer>(true) != null)
                     return t;
             }
@@ -370,24 +403,31 @@ public class TankDestructionSequence : MonoBehaviour {
     }
 
     private void StopTankLogic() {
+        temporarilyDisabledBehaviours.Clear();
+
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
 
-        if (agent != null) {
-            if (agent.enabled && agent.isOnNavMesh) {
-                agent.isStopped = true;
-                agent.ResetPath();
-            }
-
-            agent.enabled = false;
+        if (agent != null && agent.enabled && agent.isOnNavMesh) {
+            agent.isStopped = true;
+            agent.ResetPath();
         }
 
         MonoBehaviour[] behaviours = GetComponents<MonoBehaviour>();
 
         foreach (MonoBehaviour behaviour in behaviours) {
+            if (behaviour == null)
+                continue;
+
             if (behaviour == this)
                 continue;
 
-            behaviour.enabled = false;
+            if (behaviour is EnemyTankRespawn)
+                continue;
+
+            if (behaviour.enabled) {
+                temporarilyDisabledBehaviours.Add(behaviour);
+                behaviour.enabled = false;
+            }
         }
 
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -403,6 +443,34 @@ public class TankDestructionSequence : MonoBehaviour {
         }
     }
 
+    private void RestoreTankLogicAfterRespawn() {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+
+        if (agent != null) {
+            agent.enabled = true;
+
+            if (agent.isOnNavMesh)
+                agent.isStopped = false;
+        }
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (rb != null)
+            rb.isKinematic = true;
+
+        foreach (MonoBehaviour behaviour in temporarilyDisabledBehaviours) {
+            if (behaviour != null)
+                behaviour.enabled = true;
+        }
+
+        temporarilyDisabledBehaviours.Clear();
+
+        EnemyTankWander wander = GetComponent<EnemyTankWander>();
+
+        if (wander != null)
+            wander.ChooseNewDestination();
+    }
+
     private void HideOriginalTank() {
         if (visualRoot != null) {
             Renderer[] renderers = visualRoot.GetComponentsInChildren<Renderer>(true);
@@ -415,6 +483,20 @@ public class TankDestructionSequence : MonoBehaviour {
 
         foreach (Collider collider in colliders)
             collider.enabled = false;
+    }
+
+    private void ShowOriginalTank() {
+        if (visualRoot != null) {
+            Renderer[] renderers = visualRoot.GetComponentsInChildren<Renderer>(true);
+
+            foreach (Renderer renderer in renderers)
+                renderer.enabled = true;
+        }
+
+        Collider[] colliders = GetComponentsInChildren<Collider>(true);
+
+        foreach (Collider collider in colliders)
+            collider.enabled = true;
     }
 
     private void RemoveScripts(GameObject target) {

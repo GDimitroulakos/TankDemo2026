@@ -269,7 +269,8 @@ MonoBehaviour:
   turretUpwardImpulse: 14
   turretTorqueImpulse: 10
   piecesLifetime: 5
-  destroyOriginalTank: 1
+  destroyOriginalTank: 0
+  respawnAfterDestruction: 1
   autoDetectTurretIfMissing: 1
 --- !u!1001 &981079825
 PrefabInstance:
@@ -346,6 +347,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
+--- !u!4 &1311466423 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8824090667754641140, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
+  m_PrefabInstance: {fileID: 981079825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1469769831
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,9 +733,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2231888856568725519, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1311466423}
+    - target: {fileID: 2231888856568725519, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
       propertyPath: respawnCenter
       value: 
       objectReference: {fileID: 1547802717}
+    - target: {fileID: 2231888856568725519, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+      propertyPath: respawnRadius
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

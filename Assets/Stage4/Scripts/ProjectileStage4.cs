@@ -25,9 +25,8 @@ public class ProjectileStage4 : MonoBehaviour {
 
         Vector3 hitPoint = transform.position;
 
-        if (collision.contactCount > 0) {
+        if (collision.contactCount > 0)
             hitPoint = collision.GetContact(0).point;
-        }
 
         HandleHit(collision.collider, hitPoint);
     }
@@ -86,9 +85,8 @@ public class ProjectileStage4 : MonoBehaviour {
             other.GetComponentInParent<EnemyTankRespawn>();
 
         if (enemyRespawn != null) {
-            if (respawnEnemyIfPossible) {
+            if (respawnEnemyIfPossible)
                 enemyRespawn.RespawnFromHit();
-            }
 
             return;
         }
@@ -98,8 +96,7 @@ public class ProjectileStage4 : MonoBehaviour {
 
         Transform enemyRoot = other.transform.root;
 
-        if (enemyRoot.CompareTag(enemyTag)) {
+        if (enemyRoot.CompareTag(enemyTag))
             Destroy(enemyRoot.gameObject);
-        }
     }
 }
