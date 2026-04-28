@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class TankDestructionSequence : MonoBehaviour {
     [Header("Visual Source")]
-    [Tooltip("Βάλε εδώ το Leopard2Visual. Αν μείνει κενό, θα γίνει αυτόματη αναζήτηση.")]
+    [Tooltip("Put Leopard2Visual here. If empty, the script will try to find it automatically.")]
     [SerializeField] private Transform visualRoot;
 
-    [Tooltip("Προαιρετικά: βάλε εδώ το πραγματικό turret object από το Leopard hierarchy.")]
+    [Tooltip("Optional: put the real turret object from the Leopard hierarchy here.")]
     [SerializeField] private Transform turretRootOverride;
 
     [Header("Explosion")]
@@ -32,7 +32,7 @@ public class TankDestructionSequence : MonoBehaviour {
     [Header("Cleanup")]
     [SerializeField] private float piecesLifetime = 5f;
 
-    [Tooltip("Για respawn πρέπει να μείνει false.")]
+    [Tooltip("For respawn, this must usually stay false.")]
     [SerializeField] private bool destroyOriginalTank = false;
 
     [Header("Respawn")]
@@ -121,7 +121,7 @@ public class TankDestructionSequence : MonoBehaviour {
 
     private void SpawnLeopardPieces(Transform debrisRoot, Vector3 hitPoint) {
         if (visualRoot == null) {
-            Debug.LogWarning("TankDestructionSequence: Δεν βρέθηκε visualRoot.", this);
+            Debug.LogWarning("TankDestructionSequence: visualRoot was not found.", this);
             return;
         }
 
@@ -433,12 +433,15 @@ public class TankDestructionSequence : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
 
         if (rb != null) {
+            if (!rb.isKinematic) {
 #if UNITY_6000_0_OR_NEWER
-            rb.linearVelocity = Vector3.zero;
+                rb.linearVelocity = Vector3.zero;
 #else
-            rb.velocity = Vector3.zero;
+                rb.velocity = Vector3.zero;
 #endif
-            rb.angularVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+
             rb.isKinematic = true;
         }
     }

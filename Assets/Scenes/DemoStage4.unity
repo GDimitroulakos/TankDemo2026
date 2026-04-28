@@ -290,7 +290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4875681450950301160, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
       propertyPath: deceleration
-      value: 4
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875681450950301160, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
+      propertyPath: reverseSpeed
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6867347769608882765, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
       propertyPath: m_IsActive
