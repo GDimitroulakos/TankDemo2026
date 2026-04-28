@@ -4,36 +4,40 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class TankDestructionSequence : MonoBehaviour {
-    [Header("Pieces")]
-    [Tooltip("Τα κομμάτια που θα αποσπαστούν, εκτός από το turret.")]
-    [SerializeField] private Transform[] pieces;
+    [Header("Visual Source")]
+    [Tooltip("Βάλε εδώ το Leopard2Visual. Αν μείνει κενό, θα γίνει αυτόματη αναζήτηση.")]
+    [SerializeField] private Transform visualRoot;
 
-    [Tooltip("Το turret που θα εκτοξευτεί προς τα πάνω. Αν έχει child το cannon, θα φύγουν μαζί.")]
-    [SerializeField] private Transform turretPiece;
+    [Tooltip("Προαιρετικά: βάλε εδώ το πραγματικό turret object από το Leopard hierarchy.")]
+    [SerializeField] private Transform turretRootOverride;
 
     [Header("Explosion")]
     [SerializeField] private GameObject explosionPrefab;
-    [SerializeField] private float explosionDelay = 0.25f;
+    [SerializeField] private float explosionDelay = 0.35f;
     [SerializeField] private float explosionLifetime = 6f;
+    [SerializeField] private bool explosionAtTankCenter = true;
 
-    [Header("Piece Forces")]
-    [SerializeField] private float pieceMass = 1f;
-    [SerializeField] private float outwardImpulse = 4f;
-    [SerializeField] private float upwardImpulse = 3f;
-    [SerializeField] private float torqueImpulse = 5f;
+    [Header("Piece Physics")]
+    [SerializeField] private float pieceMass = 0.8f;
+    [SerializeField] private float outwardImpulse = 5f;
+    [SerializeField] private float upwardImpulse = 2.5f;
+    [SerializeField] private float torqueImpulse = 6f;
 
-    [Header("Turret Force")]
-    [SerializeField] private float turretMass = 1.5f;
+    [Header("Turret Physics")]
+    [SerializeField] private float turretMass = 2f;
     [SerializeField] private float turretOutwardImpulse = 3f;
-    [SerializeField] private float turretUpwardImpulse = 16f;
-    [SerializeField] private float turretTorqueImpulse = 8f;
+    [SerializeField] private float turretUpwardImpulse = 18f;
+    [SerializeField] private float turretTorqueImpulse = 10f;
 
     [Header("Cleanup")]
     [SerializeField] private float piecesLifetime = 5f;
     [SerializeField] private bool destroyOriginalTank = true;
 
+    [Header("Auto Turret Detection")]
+    [SerializeField] private bool autoDetectTurretIfMissing = true;
+
     private bool isDestroyed;
-    private readonly List<GameObject> spawnedPieces = new();
+    private readonly List<GameObject> spawnedPieces = new List<GameObject>();
 
     public void DestroyTank(Vector3 hitPoint) {
         if (isDestroyed)
@@ -45,33 +49,23 @@ public class TankDestructionSequence : MonoBehaviour {
     private IEnumerator DestroyRoutine(Vector3 hitPoint) {
         isDestroyed = true;
 
+        if (visualRoot == null)
+            visualRoot = FindVisualRoot();
+
         StopTankLogic();
 
-        GameObject debrisRoot = new GameObject($"{name}_DestroyedPieces");
+        GameObject debrisRoot = new GameObject($"{name}_LeopardDebris");
         debrisRoot.transform.SetPositionAndRotation(transform.position, transform.rotation);
 
-        SpawnAllPieces(debrisRoot.transform, hitPoint);
+        SpawnLeopardPieces(debrisRoot.transform, hitPoint);
 
         HideOriginalTank();
 
         yield return new WaitForSeconds(explosionDelay);
 
-        if (explosionPrefab != null) {
-            GameObject explosion = Instantiate(
-                explosionPrefab,
-                transform.position,
-                Quaternion.identity
-            );
-
-            Destroy(explosion, explosionLifetime);
-        }
+        SpawnExplosion(hitPoint);
 
         yield return new WaitForSeconds(piecesLifetime);
-
-        foreach (GameObject piece in spawnedPieces) {
-            if (piece != null)
-                Destroy(piece);
-        }
 
         if (debrisRoot != null)
             Destroy(debrisRoot);
@@ -80,64 +74,233 @@ public class TankDestructionSequence : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    private void SpawnAllPieces(Transform debrisRoot, Vector3 hitPoint) {
-        HashSet<Transform> usedPieces = new HashSet<Transform>();
+    private Transform FindVisualRoot() {
+        Transform[] allTransforms = GetComponentsInChildren<Transform>(true);
 
-        if (turretPiece != null && usedPieces.Add(turretPiece)) {
-            SpawnPiece(turretPiece, debrisRoot, hitPoint, true);
+        foreach (Transform t in allTransforms) {
+            if (t.name == "Leopard2Visual")
+                return t;
         }
 
-        if (pieces == null)
+        foreach (Transform t in allTransforms) {
+            if (t != transform && t.GetComponentInChildren<Renderer>(true) != null)
+                return t;
+        }
+
+        return transform;
+    }
+
+    private void SpawnLeopardPieces(Transform debrisRoot, Vector3 hitPoint) {
+        if (visualRoot == null) {
+            Debug.LogWarning("TankDestructionSequence: Δεν βρέθηκε visualRoot.", this);
             return;
+        }
 
-        foreach (Transform piece in pieces) {
-            if (piece == null)
+        Transform turretRoot = turretRootOverride;
+
+        if (turretRoot == null && autoDetectTurretIfMissing)
+            turretRoot = TryAutoDetectTurret();
+
+        if (turretRoot != null) {
+            GameObject turretPiece = CloneHierarchyAsPhysicsPiece(
+                turretRoot,
+                debrisRoot,
+                hitPoint,
+                true
+            );
+
+            if (turretPiece != null)
+                spawnedPieces.Add(turretPiece);
+        }
+
+        Renderer[] renderers = visualRoot.GetComponentsInChildren<Renderer>(true);
+
+        foreach (Renderer renderer in renderers) {
+            if (renderer == null)
                 continue;
 
-            if (!usedPieces.Add(piece))
+            if (!renderer.enabled)
                 continue;
 
-            SpawnPiece(piece, debrisRoot, hitPoint, false);
+            if (turretRoot != null && IsChildOf(renderer.transform, turretRoot))
+                continue;
+
+            GameObject piece = CloneRendererAsPhysicsPiece(
+                renderer,
+                debrisRoot,
+                hitPoint,
+                false
+            );
+
+            if (piece != null)
+                spawnedPieces.Add(piece);
         }
     }
 
-    private void SpawnPiece(
-        Transform source,
+    private Transform TryAutoDetectTurret() {
+        Transform[] allTransforms = visualRoot.GetComponentsInChildren<Transform>(true);
+
+        foreach (Transform t in allTransforms) {
+            string lowerName = t.name.ToLowerInvariant();
+
+            if (lowerName.Contains("turret") ||
+                lowerName.Contains("tower") ||
+                lowerName.Contains("gun")) {
+                if (t.GetComponentInChildren<Renderer>(true) != null)
+                    return t;
+            }
+        }
+
+        Renderer[] renderers = visualRoot.GetComponentsInChildren<Renderer>(true);
+
+        if (renderers.Length == 0)
+            return null;
+
+        Bounds totalBounds = renderers[0].bounds;
+
+        for (int i = 1; i < renderers.Length; i++)
+            totalBounds.Encapsulate(renderers[i].bounds);
+
+        Renderer bestRenderer = null;
+        float bestScore = 0f;
+
+        foreach (Renderer r in renderers) {
+            Bounds b = r.bounds;
+
+            float relativeHeight = Mathf.InverseLerp(
+                totalBounds.min.y,
+                totalBounds.max.y,
+                b.center.y
+            );
+
+            float volume = b.size.x * b.size.y * b.size.z;
+
+            bool isUpperPart = relativeHeight > 0.45f;
+            bool isNotWholeTank =
+                b.size.x < totalBounds.size.x * 0.85f &&
+                b.size.z < totalBounds.size.z * 0.85f;
+
+            if (!isUpperPart || !isNotWholeTank)
+                continue;
+
+            float score = volume * relativeHeight;
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestRenderer = r;
+            }
+        }
+
+        return bestRenderer != null ? bestRenderer.transform : null;
+    }
+
+    private GameObject CloneHierarchyAsPhysicsPiece(
+        Transform sourceRoot,
         Transform debrisRoot,
         Vector3 hitPoint,
         bool isTurret
     ) {
-        GameObject fragment = Instantiate(source.gameObject);
+        GameObject clone = Instantiate(sourceRoot.gameObject);
 
-        fragment.name = $"{source.name}_Destroyed";
-        fragment.SetActive(true);
+        clone.name = $"{sourceRoot.name}_Destroyed";
+        clone.SetActive(true);
 
-        fragment.transform.SetPositionAndRotation(source.position, source.rotation);
-        fragment.transform.localScale = source.lossyScale;
-        fragment.transform.SetParent(debrisRoot, true);
+        clone.transform.SetPositionAndRotation(sourceRoot.position, sourceRoot.rotation);
+        clone.transform.localScale = sourceRoot.lossyScale;
+        clone.transform.SetParent(debrisRoot, true);
 
-        RemoveScripts(fragment);
-        EnsureColliders(fragment);
+        RemoveScripts(clone);
+        RemoveColliders(clone);
 
-        Rigidbody rb = fragment.GetComponent<Rigidbody>();
+        Renderer[] renderers = clone.GetComponentsInChildren<Renderer>(true);
 
-        if (rb == null)
-            rb = fragment.AddComponent<Rigidbody>();
+        if (renderers.Length == 0) {
+            Destroy(clone);
+            return null;
+        }
 
-        rb.isKinematic = false;
-        rb.useGravity = true;
+        Bounds bounds = GetRendererBounds(renderers);
+
+        AddBoxColliderFromBounds(clone, bounds);
+        AddPhysics(clone, bounds.center, hitPoint, isTurret);
+
+        return clone;
+    }
+
+    private GameObject CloneRendererAsPhysicsPiece(
+        Renderer sourceRenderer,
+        Transform debrisRoot,
+        Vector3 hitPoint,
+        bool isTurret
+    ) {
+        MeshFilter sourceMeshFilter = sourceRenderer.GetComponent<MeshFilter>();
+        MeshRenderer sourceMeshRenderer = sourceRenderer as MeshRenderer;
+
+        if (sourceMeshFilter == null ||
+            sourceMeshFilter.sharedMesh == null ||
+            sourceMeshRenderer == null) {
+            return CloneHierarchyAsPhysicsPiece(
+                sourceRenderer.transform,
+                debrisRoot,
+                hitPoint,
+                isTurret
+            );
+        }
+
+        GameObject piece = new GameObject($"{sourceRenderer.name}_Destroyed");
+
+        piece.transform.SetPositionAndRotation(
+            sourceRenderer.transform.position,
+            sourceRenderer.transform.rotation
+        );
+
+        piece.transform.localScale = sourceRenderer.transform.lossyScale;
+        piece.transform.SetParent(debrisRoot, true);
+
+        MeshFilter meshFilter = piece.AddComponent<MeshFilter>();
+        meshFilter.sharedMesh = sourceMeshFilter.sharedMesh;
+
+        MeshRenderer meshRenderer = piece.AddComponent<MeshRenderer>();
+        meshRenderer.sharedMaterials = sourceMeshRenderer.sharedMaterials;
+        meshRenderer.shadowCastingMode = sourceMeshRenderer.shadowCastingMode;
+        meshRenderer.receiveShadows = sourceMeshRenderer.receiveShadows;
+
+        Bounds bounds = sourceRenderer.bounds;
+
+        AddBoxColliderFromBounds(piece, bounds);
+        AddPhysics(piece, bounds.center, hitPoint, isTurret);
+
+        return piece;
+    }
+
+    private void AddPhysics(
+        GameObject piece,
+        Vector3 worldCenter,
+        Vector3 hitPoint,
+        bool isTurret
+    ) {
+        Rigidbody rb = piece.AddComponent<Rigidbody>();
+
         rb.mass = isTurret ? turretMass : pieceMass;
-        rb.linearDamping = 0.2f;
-        rb.angularDamping = 0.1f;
+        rb.useGravity = true;
+        rb.isKinematic = false;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
 
-        Vector3 awayFromHit = fragment.transform.position - hitPoint;
+#if UNITY_6000_0_OR_NEWER
+        rb.linearDamping = 0.2f;
+        rb.angularDamping = 0.1f;
+#else
+        rb.drag = 0.2f;
+        rb.angularDrag = 0.1f;
+#endif
+
+        Vector3 awayFromHit = worldCenter - hitPoint;
 
         if (awayFromHit.sqrMagnitude < 0.01f)
             awayFromHit = Random.insideUnitSphere;
 
-        awayFromHit.y = Mathf.Abs(awayFromHit.y) + 0.2f;
+        awayFromHit.y = Mathf.Abs(awayFromHit.y) + 0.25f;
         awayFromHit.Normalize();
 
         float horizontalForce = isTurret ? turretOutwardImpulse : outwardImpulse;
@@ -153,8 +316,57 @@ public class TankDestructionSequence : MonoBehaviour {
             Random.insideUnitSphere * torqueForce,
             ForceMode.Impulse
         );
+    }
 
-        spawnedPieces.Add(fragment);
+    private void AddBoxColliderFromBounds(GameObject piece, Bounds worldBounds) {
+        BoxCollider boxCollider = piece.AddComponent<BoxCollider>();
+
+        boxCollider.center = piece.transform.InverseTransformPoint(worldBounds.center);
+
+        Vector3 lossyScale = piece.transform.lossyScale;
+
+        float sx = Mathf.Approximately(lossyScale.x, 0f) ? 1f : Mathf.Abs(lossyScale.x);
+        float sy = Mathf.Approximately(lossyScale.y, 0f) ? 1f : Mathf.Abs(lossyScale.y);
+        float sz = Mathf.Approximately(lossyScale.z, 0f) ? 1f : Mathf.Abs(lossyScale.z);
+
+        boxCollider.size = new Vector3(
+            Mathf.Max(0.05f, worldBounds.size.x / sx),
+            Mathf.Max(0.05f, worldBounds.size.y / sy),
+            Mathf.Max(0.05f, worldBounds.size.z / sz)
+        );
+
+        boxCollider.isTrigger = false;
+    }
+
+    private Bounds GetRendererBounds(Renderer[] renderers) {
+        Bounds bounds = renderers[0].bounds;
+
+        for (int i = 1; i < renderers.Length; i++)
+            bounds.Encapsulate(renderers[i].bounds);
+
+        return bounds;
+    }
+
+    private void SpawnExplosion(Vector3 hitPoint) {
+        if (explosionPrefab == null)
+            return;
+
+        Vector3 explosionPosition = hitPoint;
+
+        if (explosionAtTankCenter && visualRoot != null) {
+            Renderer[] renderers = visualRoot.GetComponentsInChildren<Renderer>(true);
+
+            if (renderers.Length > 0)
+                explosionPosition = GetRendererBounds(renderers).center;
+        }
+
+        GameObject explosion = Instantiate(
+            explosionPrefab,
+            explosionPosition,
+            Quaternion.identity
+        );
+
+        Destroy(explosion, explosionLifetime);
     }
 
     private void StopTankLogic() {
@@ -169,7 +381,9 @@ public class TankDestructionSequence : MonoBehaviour {
             agent.enabled = false;
         }
 
-        foreach (MonoBehaviour behaviour in GetComponents<MonoBehaviour>()) {
+        MonoBehaviour[] behaviours = GetComponents<MonoBehaviour>();
+
+        foreach (MonoBehaviour behaviour in behaviours) {
             if (behaviour == this)
                 continue;
 
@@ -179,62 +393,54 @@ public class TankDestructionSequence : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
 
         if (rb != null) {
+#if UNITY_6000_0_OR_NEWER
             rb.linearVelocity = Vector3.zero;
+#else
+            rb.velocity = Vector3.zero;
+#endif
             rb.angularVelocity = Vector3.zero;
             rb.isKinematic = true;
         }
     }
 
     private void HideOriginalTank() {
-        foreach (Renderer renderer in GetComponentsInChildren<Renderer>(true)) {
-            renderer.enabled = false;
+        if (visualRoot != null) {
+            Renderer[] renderers = visualRoot.GetComponentsInChildren<Renderer>(true);
+
+            foreach (Renderer renderer in renderers)
+                renderer.enabled = false;
         }
 
-        foreach (Collider collider in GetComponentsInChildren<Collider>(true)) {
+        Collider[] colliders = GetComponentsInChildren<Collider>(true);
+
+        foreach (Collider collider in colliders)
             collider.enabled = false;
-        }
     }
 
-    private void RemoveScripts(GameObject fragment) {
-        foreach (MonoBehaviour behaviour in fragment.GetComponentsInChildren<MonoBehaviour>(true)) {
+    private void RemoveScripts(GameObject target) {
+        MonoBehaviour[] behaviours = target.GetComponentsInChildren<MonoBehaviour>(true);
+
+        foreach (MonoBehaviour behaviour in behaviours)
             Destroy(behaviour);
-        }
     }
 
-    private void EnsureColliders(GameObject fragment) {
-        Collider[] colliders = fragment.GetComponentsInChildren<Collider>(true);
+    private void RemoveColliders(GameObject target) {
+        Collider[] colliders = target.GetComponentsInChildren<Collider>(true);
 
-        if (colliders.Length > 0) {
-            foreach (Collider collider in colliders) {
-                collider.enabled = true;
-                collider.isTrigger = false;
-            }
+        foreach (Collider collider in colliders)
+            Destroy(collider);
+    }
 
-            return;
+    private bool IsChildOf(Transform possibleChild, Transform possibleParent) {
+        Transform current = possibleChild;
+
+        while (current != null) {
+            if (current == possibleParent)
+                return true;
+
+            current = current.parent;
         }
 
-        Renderer[] renderers = fragment.GetComponentsInChildren<Renderer>(true);
-        BoxCollider boxCollider = fragment.AddComponent<BoxCollider>();
-
-        if (renderers.Length == 0) {
-            boxCollider.size = Vector3.one;
-            return;
-        }
-
-        Bounds bounds = renderers[0].bounds;
-
-        for (int i = 1; i < renderers.Length; i++) {
-            bounds.Encapsulate(renderers[i].bounds);
-        }
-
-        boxCollider.center = fragment.transform.InverseTransformPoint(bounds.center);
-
-        Vector3 localSize = fragment.transform.InverseTransformVector(bounds.size);
-
-        boxCollider.size = new Vector3(
-            Mathf.Abs(localSize.x),
-            Mathf.Abs(localSize.y),
-            Mathf.Abs(localSize.z)
-        );
+        return false;
     }
 }

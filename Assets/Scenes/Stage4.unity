@@ -237,6 +237,40 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bcdf2c86206a5040a3b81f5865a75ae, type: 3}
+--- !u!1 &422779787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1862866906044095441, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+  m_PrefabInstance: {fileID: 1742167964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &422779794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422779787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e456f387d12c63c4b81dce6f15b4da12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankDestructionSequence
+  visualRoot: {fileID: 1742167966}
+  turretRootOverride: {fileID: 1742167965}
+  explosionPrefab: {fileID: 6463384822213052096, guid: a1980d58fcd50504eb8653ae064a781b, type: 3}
+  explosionDelay: 0.35
+  explosionLifetime: 6
+  explosionAtTankCenter: 1
+  pieceMass: 0.8
+  outwardImpulse: 5
+  upwardImpulse: 2.5
+  torqueImpulse: 6
+  turretMass: 2
+  turretOutwardImpulse: 22
+  turretUpwardImpulse: 14
+  turretTorqueImpulse: 10
+  piecesLifetime: 5
+  destroyOriginalTank: 1
+  autoDetectTurretIfMissing: 1
 --- !u!1001 &981079825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +287,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8368505742236108761, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 7011535655356217711, guid: c918c190e7e21da4ea14ca1502544d05, type: 3}
     - target: {fileID: 8824090667754641140, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -605,6 +643,37 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1547802716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547802717}
+  m_Layer: 0
+  m_Name: RespawnCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547802717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547802716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1742167964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,11 +726,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2231888856568725519, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+      propertyPath: respawnCenter
+      value: 
+      objectReference: {fileID: 1547802717}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1862866906044095441, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 422779794}
   m_SourcePrefab: {fileID: 100100000, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+--- !u!4 &1742167965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4611458791719000073, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+  m_PrefabInstance: {fileID: 1742167964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1742167966 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1345940662782327152, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
+  m_PrefabInstance: {fileID: 1742167964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2013444161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3236867315300931289, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
@@ -677,3 +763,4 @@ SceneRoots:
   - {fileID: 981079825}
   - {fileID: 1742167964}
   - {fileID: 254736154}
+  - {fileID: 1547802717}

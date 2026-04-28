@@ -289,6 +289,11 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!4 &351003615 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3236867315300931289, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
+  m_PrefabInstance: {fileID: 8178662822330312225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &734371682
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +568,7 @@ PrefabInstance:
     - target: {fileID: 3416077695864592565, guid: e9d7e3bb3bf5e6a45829f861231677a1, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 7646445328304244866}
+      objectReference: {fileID: 351003615}
     - target: {fileID: 6935753084328520973, guid: e9d7e3bb3bf5e6a45829f861231677a1, type: 3}
       propertyPath: m_Name
       value: PlayerTank Camera_Stage3
@@ -630,11 +635,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bcdf2c86206a5040a3b81f5865a75ae, type: 3}
---- !u!4 &7646445328304244866 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2256441340367896680, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
-  m_PrefabInstance: {fileID: 8178662822330312225}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8178662822330312225
 PrefabInstance:
   m_ObjectHideFlags: 0
