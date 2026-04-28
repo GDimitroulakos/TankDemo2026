@@ -284,6 +284,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4875681450950301160, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
+      propertyPath: acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875681450950301160, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
+      propertyPath: deceleration
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6867347769608882765, guid: ca54c4d72576bee468538c4cb7bbffba, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -745,7 +753,8 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2209605353689854288, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1862866906044095441, guid: eaa758aa343f5984ab383dde0c28e7db, type: 3}
